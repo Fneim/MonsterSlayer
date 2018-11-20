@@ -7,37 +7,53 @@
     <link rel="stylesheet" href="public/index.css" />
   </head>
   <body>
-    <div class="container">
+    <div id="game" class="container">
       <div class="row">
         <div class="col">
           <h1 class="text-center">YOU</h1>
           <div class="py-2 px-5">
-            <div class="healthbar text-center"></div>
+            <div class="healthbar text-center text-white">
+            {{ playerHealth }}
+          </div>
           </div>
         </div>
         <div class="col">
           <h1 class="text-center">MONSTER</h1>
           <div class="py-2 px-5">
-            <div class="healthbar text-center"></div>
+            <div class="healthbar text-center text-white">
+              {{monsterHealth }}
+          </div>
           </div>
         </div>
       </div>
 
       <div class="row">
         <div class="col text-center">
-          <button id="start-game" class="btn" v-bind:class="">START GAME</button>
+          <button id="start-game" class="btn" v-on:class="">START GAME</button>
         </div>
       </div>
 
-      <div class="row d-none">
+      <section class="row">
         <div class="col text-center p-2">
-          <button id="attack" class="btn">ATTACK</button>
-          <button id="special-attack" class="btn">SPECIAL ATTACK</button>
-          <button id="heal" class="btn">HEAL</button>
-          <button id="give-up" class="btn">GIVE UP</button>
+          <button v-on:click="attackMonster" id="attack" class="btn">ATTACK</button>
+          <button v-on:click="specialAttack" id="special-attack" class="btn">SPECIAL ATTACK</button>
+          <button v-on:click="heal" id="heal" class="btn">HEAL</button>
+          <button v-on:click="giveUp" id="give-up" class="btn">GIVE UP</button>
+
         </div>
-      </div>
+      </section>
+
+      <section class="row">
+        <div id="log">
+          <ul>
+            <li v-for="move in moves">
+              {{ move.msg }}
+            </li>
+          </ul>
+        </div>
+      </section>
     </div>
+
 
     <script src="https://cdn.jsdelivr.net/npm/vue@2.5.17/dist/vue.js"></script>
     <script src="public/index.js"></script>
