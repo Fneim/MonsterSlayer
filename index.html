@@ -29,24 +29,24 @@
 
       <div class="row">
         <div class="col text-center">
-          <button id="start-game" class="btn" v-on:class="">START GAME</button>
+          <button class="btn" v-on:click="startButton.seen = false; controls.seen = true" v-if="startButton.seen" >START GAME</button>
         </div>
       </div>
 
       <section class="row">
-        <div class="col text-center p-2">
+        <div  v-if="controls.seen" class="col text-center p-2">
           <button v-on:click="attackMonster" id="attack" class="btn">ATTACK</button>
           <button v-on:click="specialAttack" id="special-attack" class="btn">SPECIAL ATTACK</button>
           <button v-on:click="heal" id="heal" class="btn">HEAL</button>
-          <button v-on:click="giveUp" id="give-up" class="btn">GIVE UP</button>
+          <button v-on:click="controls.seen = false; startButton.seen = true; giveUp();" id="give-up" class="btn">GIVE UP</button>
 
         </div>
       </section>
 
       <section class="row">
-        <div id="log">
-          <ul>
-            <li v-for="move in moves">
+        <div class="d-flex justify-content-middle">
+          <ul class="list-group">
+            <li v-for="move in moves" class="list-group-item">
               {{ move.msg }}
             </li>
           </ul>

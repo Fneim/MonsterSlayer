@@ -1,15 +1,12 @@
 new Vue({
-  el:"#start-game",
-  data: {
-    displayNone: "d-none",
-    displayBlock: "d-block"
-  }
-});
-
-new Vue({
   el: "#game",
   data: {
-    text: "hello",
+    startButton: {
+      seen: true
+    },
+    controls: {
+      seen:false
+    },
     playerHealth: 100,
     monsterHealth: 100,
     moves: [
