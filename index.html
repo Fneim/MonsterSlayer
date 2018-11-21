@@ -10,17 +10,17 @@
     <div id="game" class="container">
       <div class="row">
         <div class="col">
-          <h1 class="text-center">YOU</h1>
-          <div class="py-2 px-5">
-            <div class="healthbar text-center text-white">
+          <h1 class="text-center mb-2">YOU</h1>
+          <div class="w-100 border border-secondary">
+            <div :style="{width: playerHealth + '%'}" class="healthbar text-center text-white">
             {{ playerHealth }}
           </div>
           </div>
         </div>
         <div class="col">
-          <h1 class="text-center">MONSTER</h1>
-          <div class="py-2 px-5">
-            <div class="healthbar text-center text-white">
+          <h1 class="text-center mb-2">MONSTER</h1>
+          <div class="w-100 border border-secondary">
+            <div :style="{width: monsterHealth + '%'}" class="healthbar text-center text-white">
               {{monsterHealth }}
           </div>
           </div>

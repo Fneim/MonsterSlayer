@@ -15,4 +15,5 @@ body {
 .healthbar {
   background:green;
   height:20px;
+  width:100%;
 }
